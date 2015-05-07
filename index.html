@@ -1,0 +1,57 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angularjs/angular.js"></script>
+        <script src="myJs.js"></script>
+        <style>
+            #header{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body ng-app="myModule">
+        <div ng-controller="myCtrl">
+            <div id="header">
+            <h2>"To-do List"</h2>
+            <br>
+            <h4>Enter your Task:</h4>
+            <input type="text" ng-model="task">
+            <br><br>
+            <button ng-click="addTask(task);">Add</button>
+            </div>
+            <h4>Tasks:</h4>
+
+            <table>
+                <tr ng-repeat="task in tasks">
+                    <td>{{$index+1}} - </td>
+                    <td><input type="checkbox" ng-click="moveTask(task);"></td>
+                    <td>{{task}}</td>
+                    <td><button ng-click="deleteTask(task);">Delete</button></td>     
+                </tr>
+            </table>
+            
+            <hr>
+           
+            <h4>Completed Tasks:</h4>
+            <table>
+                    <tr ng-repeat="task1 in doneTasks">
+                        <td>{{$index+1}} - </td>
+                    <td>{{task1}}</td>     
+                </tr>
+            </table>
+
+            </div>
+
+    </body>
+</html>
